@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="adm/parametre">
+<head>
+<title>Getting Started: Handling Form Submission</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+.espace {
+	border-spacing: 5px 10px;
+	padding: 5px;
+}
+</style>
+</head>
+<body>
+	<div layout:fragment="param">
+		<div class="container-fluid">
+			<h3>Mise à jour</h3>
+			<div class="container">
+				<table>
+					<form th:action="@{updatead}" th:object="${adminedit}"
+						class="form-horizontal" enctype="multipart/form-data"
+						method="post" role="form">
+					<tr>
+						<td>Civ. :</td>
+						<td><select class="form-control" th:field="*{civilite}">
+								<option value="Mr">Mr</option>
+								<option value="Mme">Mme</option>
+								<option value="Mlle">Mlle</option>
+						</select><br /></td>
+						<td align="right">E-mail :</td>
+						<td><input type="email" th:field="*{email}"
+							class="form-control" name="email" id="email" /><br /></td>
+					</tr>
+					<tr>
+						<td><input type="hidden" th:field="*{code}"
+							class="form-control" name="nom" id="nom" /> <span
+							th:errors="*{code}"></span>Nom</td>
+						<td><input type="text" th:field="*{nom}" class="form-control"
+							name="nom" id="nom" /><br /></td>
+						<td align="right">Pass. :</td>
+						<td><input type="password" th:field="*{motDePasse}"
+							class="form-control" name="motDePasse" id="motDePasse" /><br /></td>
+					</tr>
+					<tr>
+						<td>Prenom :</td>
+						<td><input type="text" th:field="*{prenom}"
+							class="form-control" name="prenom" id="prenom" /><br /></td>
+						<td align="right">Tél.</td>
+						<td><input type="text" th:field="*{telephone}"
+							class="form-control" name="tel" id="tel" /><br /></td>
+					</tr>
+					<tr>
+						<td>Adresse :</td>
+						<td><textarea th:field="*{adress}" class="form-control"
+								name="adress" id="adress" rows="4" cols="30">
+								</textarea></td>
+						<td align="right">Salaire :</td>
+						<td><input type="text" th:field="*{salaire}"
+							class="form-control" name="salaire" id="salaire" /><br /></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td>
+							<button name="submit" id="cancel" type="reset" value="reset"
+								class="btn btn-default">
+								Cancel<span class="glyphicon glyphicon-remove"></span>
+							</button>
+						</td>
+						<td align="right">
+							<button name="submit" id="submit" type="submit" value="submit"
+								class="btn btn-default">
+								<span align="rigth" class="glyphicon glyphicon-floppy-disk"></span>Valider<span
+									class="glyphicon glyphicon-chevron-right"></span>
+							</button>
+						</td>
+					</tr>
+					</form>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

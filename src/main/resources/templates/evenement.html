@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="myTemplate">
+<head>
+<title>Evenements KFHMedia</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="container-fluid">
+			<br /> <br />
+			<h2 align="center">Pourquoi une médiathèque en ligne?</h2>
+			<div id="foo" class="col-md-3">
+				<div class="box-item">
+					<center>
+						<img class="classimg" alt="img1" th:src="@{/images/alaune.png}" />
+						<h3>À la une</h3>
+					</center>
+
+
+				</div>
+			</div>
+			<div id="foo" class="col-md-3">
+				<div class="box-item">
+					<center>
+						<img class="classimg" alt="img1" th:src="@{/images/avenir.png}" />
+						<h3>À venir</h3>
+					</center>
+					<ul>
+						<li>OUVERTURE DE LA MÉDIATHÈQUE DIMANCHE 28 JANVIER DE 10H À
+							13H30</li>
+						<li>6 MOIS GRATUITS POUR LES ETUDIANTS DE - 27 ANS!</li>
+						<li>LA SCIENCE SE LIVRE 2018 : DU 27 JANVIER AU 17 FÉVRIER</li>
+						<li>UN LIVRE, UN ETUDIANT À PARTIR DE FEVRIER</li>
+						<li>LES CONTES DU ÇA-ME-DIT : VIVE LES ANIMAUX !</li>
+					</ul>
+
+				</div>
+			</div>
+			<div id="foo" class="col-md-3">
+				<div class="box-item">
+					<center>
+						<img class="classimg" alt="img1" th:src="@{/images/dateimpo.jpg}" />
+						<h3>Les rendez-vous importants</h3>
+					</center>
+					<ul>
+						<li>Le 30 janvier 2018 : MON ROYAUME POUR UN CHEVAL</li>
+						<li>Le 31 janvier 2018 : BANQUET SHAKESPEARIEN</li>
+						<li>Le 2 février 2018
+							<ul>
+								<li>MACBETH FATUM</li>
+								<li>Pour une mutuelle solidaire</li>
+							</ul>
+						</li>
+						<li>Le 13 février 2018 :DORMIR CENT ANS</li>
+					</ul>
+
+				</div>
+			</div>
+			<div id="foo" class="col-md-3">
+				<div class="box-item">
+					<center>
+						<img class="classimg" alt="img1" th:src="@{/images/passe.png}" />
+						<h3>les événements passé</h3>
+					</center>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

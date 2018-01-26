@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="myTemplate">
+<head>
+<title>Accueil KFHMedia</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="container-fluid">
+			<br /> <br />
+			<h2 align="center">Pourquoi une médiathèque en ligne?</h2>
+			<div class="row">
+				<div id="foo" class="col-md-3">
+					<div class="box-item">
+						<center>
+							<img class="classimg" alt="img1"
+								th:src="@{/images/informatique.jpg}" />
+						</center>
+						<h3>Informatique</h3>
+						<p id="sectionaccueil">Ce n'est que récemment que l'on a
+							commencé à mesurer à quel point l'informatique est en passe de
+							transformer notre société, et même de la bouleverser de fond en
+							comble. C'est à décrire et à analyser les fondements de
+							l'hyperpuissance de l'informatique que Gérard Berry se consacre
+							dans ce livre qui fera date.</p>
+					</div>
+				</div>
+				<div id="foo" class="col-md-3">
+					<div class="box-item">
+						<center>
+							<img class="classimg" alt="img1" th:src="@{/images/servers.png}" />
+						</center>
+						<h3>Base de données</h3>
+						<p>Ce manuel vise un triple objectif : comprendre les concepts
+							théoriques, apprendre à utiliser des bases de données, et enfin
+							savoir en construire de nouvelles. La première partie explique
+							les notions de base sur les structures de données, les systèmes
+							de gestion de bases de données, le modèle relationnel...</p>
+					</div>
+				</div>
+				<div id="foo" class="col-md-3">
+					<div class="box-item">
+						<center>
+							<img class="classimg" alt="img1" th:src="@{/images/14.jpg}" />
+						</center>
+						<h3>Littérature</h3>
+						<p>Après une liaison passionnée qui s’est achevée dans les
+							larmes et les reproches, Christian Grey est incapable d’oublier
+							Anastasia Steele. Il l’a dans la peau. Décidé à regagner son
+							amour, il s’efforce de réprimer ses désirs les plus troubles et
+							son besoin de tout contrôler pour enfin aimer Ana selon ses
+							conditions.</p>
+					</div>
+				</div>
+				<div id="foo" class="col-md-3">
+					<div class="box-item">
+						<center>
+							<img class="classimg" alt="img1"
+								th:src="@{/images/programmation.jpg}" />
+						</center>
+						<h3>Programmation</h3>
+						<p>Avec Programmer pour les Nuls, il n’est pas question de
+							faire de vous un programmeur professionnel en quelques jours mais
+							de vous mettre le pied à l’étrier afin de vous apprendre à
+							développer des programmes dans un langage structuré. En quelques
+							heures vous deviendrez familier avec la structure des données.</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="panel panel-primary">
+						<div class="panel-body">
+							<img height="42" width="100%" th:src="@{../images/3.jpg}"
+								alt="First slide" />
+						</div>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div class="panel panel-primary">
+						<div class="panel-body">
+							<img height="42" width="100%" th:src="@{../images/2.jpg}" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>
