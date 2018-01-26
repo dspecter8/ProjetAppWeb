@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="client/clientTemplate">
+<style>
+#id_div_im {
+	display:block; 
+	float: left;
+	border-style: solid; 
+	border-color: grey;
+	width: 100%;
+	height: 660px;
+}
+
+#id_div_i {
+	float: left;
+	border-color: grey; /*
+	width: 100%;
+	height: 100%;
+}
+
+#img_im {
+	width: 100%;
+	height: 100%;
+}
+</style>
+<head>
+<title>Getting Started: Handling Form Submission</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div layout:fragment="corps">
+		<div class="container-fluid">
+			  <div class="col-md-8 electro-left text-center">
+			<div class="electro-img-left mask">
+				<div class="content-grid-effect slow-zoom vertical">
+					<div class="img-box"><img src="../images/15.jpg" alt="image" class="img-responsive zoom-img"/></div>
+						<div class="info-box">
+							<div class="info-content electro-text simpleCart_shelfItem">
+								<h4>SPORT</h4>
+								<span class="separator"></span>
+								<p><span class="item_price">15</span></p>
+								<span class="separator"></span>
+								<a class="item_add hvr-outline-out button2 detailMedia" href="#">Détail</a>
+							</div>
+						</div>
+				</div>
+			</div>
+	
+			<div class="electro-img-btm-l mask">
+				<div class="content-grid-effect slow-zoom vertical">
+					<div class="img-box"><img src="../images/14.jpg" alt="image" class="img-responsive zoom-img"/></div>
+						<div class="info-box">
+							<div class="info-content electro-text simpleCart_shelfItem">
+								<h4>Science</h4>
+								<span class="separator"></span>
+								<p><span class="item_price">120</span></p>
+								<span class="separator"></span>
+								<a class="item_add hvr-outline-out button2 detailMedia" href="#">Détail </a>
+							</div>
+						</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>         
+                               
+		
+		<script type="text/javascript">
+			 $(".detailMedia").click(function(){
+
+                 $("#detailMediaModal").modal('show');
+
+               });
+			 
+			 </script>
+			 
+			 <!-- Modal VISUAL DETAIL VIDEO -->
+                                <div class="modal fade" id="detailMediaModal" tabindex="-1" role="dialog" aria-labelledby="SignUpModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Name Media Selected</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                   
+                                                    <!--   Panel body Start    -->
+                                                     
+                                                        <form class="form-horizontal" >
+                                                        
+				
+                                                            <div class="form-group">
+                                                                <label  class="col-sm-2 control-label">Etat: </label>
+                                                                
+                                                                <div class="col-sm-10">
+                                                                ...disponible
+                                                                </div>
+                                                            </div>
+                                                
+                                                       <div class="form-group">
+                                                                <label  class="col-sm-2 control-label">Description: </label>
+                                                                
+                                                                <div class="col-sm-10">
+                                                                ...discription Video
+                                                                </div>
+                                                            </div>
+                                                            
+                                                                                                                         
+                                                            <div class="form-group">
+                                                                <label  class="col-sm-2 control-label">Date de sortie: </label>
+                                                                
+                                                                <div class="col-sm-10">
+                                                                ...date de sortie
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="form-group">
+                                                                <label  class="col-sm-2 control-label">Quantité restants: </label>
+                                                                
+                                                                <div class="col-sm-10">
+                                                                ...Quantité restants
+                                                                </div>
+                                                            </div>
+                                                            
+                                                      </form>
+                                                    
+                                                    <!--    Panel body Ends    -->
+                                               
+                                              </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                             
+    
+       <!-- END VISUAL DETAIL VIDEO -->
+        
+			 
+
+		</div>
+	</div>
+</body>
+</html>

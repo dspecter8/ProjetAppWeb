@@ -24,6 +24,7 @@ import com.miage.entities.Livre;
 import com.miage.entities.Media;
 import com.miage.entities.Operation;
 import com.miage.entities.Personne;
+import com.miage.entities.Video;
 import com.miage.metier.IAdminMetier;
 import com.miage.metier.IEmployerMetier;
 
@@ -74,25 +75,52 @@ public class KfhMediaApplication implements CommandLineRunner {
 		Employer emModif = new Employer("Modif11", "pre222nom", "email4", "mot222DePasse", "ad2222ress", new Date(),
 				"Non actif", adm);
 		// Test metier
-		Livre l = new Livre("nom", 10000, 1, new Date(), "titi tata", "photo", empl1, "Toledo", new Date(),
-				"nomEdition1", 45);
-		//Livre lll = new Livre(nom, quantite, etat, dateCreation, description, photo, employe, auteur, anneeDeSortie, nomEdition, nombrePage)
-		
-		Livre l1 = new Livre("no4444m", 10000,441, new Date(), "tit4444444444i tata", "photo", empl1, "Toledo", new Date(),
-				"nomEdition1", 45);
-		emMetier.ajouterLivre(l);
-		
-		Client cl = new Client("Client1nom", "Client1Metierprenom", "ClieMetiernt1email", "ClientMetier1motDePasse", "ClientMetier1adress",
-				new Date(), new Date(), 0, empl1);
-		emMetier.ajouterClient(cl);
-		admMetier.ajouterEmployer(em3);
-		
-		//emMetier.modifierMedia(l.getCodeMedia(), l1);
-		
-		admMetier.updateSalaireEmployer(1275.57, em2.getCode());
-		admMetier.updateSalaireEmployer(1275.57, empl1.getCode());
-		admMetier.updateSalaireEmployer(1275.57, em3.getCode());
-		admMetier.activerEmployer(em2.getCode());
+		// Test metier
+				Livre l = new Livre("Nature", 10000, 1, new Date(), "titi tata", "12.jpg", empl1, "Toledo", new Date(),
+						"nomEdition1", 45);
+				//Livre lll = new Livre(nom, quantite, etat, dateCreation, description, photo, employe, auteur, anneeDeSortie, nomEdition, nombrePage)
+				
+				Livre l1 = new Livre("informatique", 10000,441, new Date(), "tit4444444444i tata", "informatique.jpg", empl1, "Toledo", new Date(),
+						"nomEdition1", 45);
+				
+				Livre l2 = new Livre("Nature2", 10000,441, new Date(), "tit4444444444i tata", "13.jpg", empl1, "Toledo", new Date(),
+						"nomEdition1", 45);
+				
+				emMetier.ajouterLivre(l);
+				
+				Client cl = new Client("Client1nom", "Client1Metierprenom", "ClieMetiernt1email", "ClientMetier1motDePasse", "ClientMetier1adress",
+						new Date(), new Date(), 0, empl1);
+				emMetier.ajouterClient(cl);
+				admMetier.ajouterEmployer(em3);
+				
+				//emMetier.modifierMedia(l.getCodeMedia(), l1);
+				
+				admMetier.updateSalaireEmployer(1275.57, em2.getCode());
+				admMetier.updateSalaireEmployer(1275.57, empl1.getCode());
+				admMetier.updateSalaireEmployer(1275.57, em3.getCode());
+				admMetier.activerEmployer(em2.getCode());
+				
+//				Media mediaV = mRep.save(new Video("videoGame", 100, 1, new Date(), "description Video1", "videoGame.jpg", empl1, "Réalisatuer V1",
+//						"Acteurs V1",new Date(), "nomStudio V1"));
+				
+				Media mediaV2 = mRep.save(new Video("100-ans-crimes", 150, 1, new Date(), "description Video2", "100-ans-crimes.jpg", empl1, "Réalisatuer V2",
+						"Acteurs V2",new Date(), "nomStudio V2"));
+
+				Media mediaV3 = mRep.save(new Video("documentaire", 150, 0, new Date(), "description Video3", "documentaire-evenement.jpg", empl1, "Réalisatuer V3",
+						"Acteurs V2",new Date(), "nomStudio V2"));
+				
+				Media media5 = mRep.save(new Audio("Phone", 45, 1, new Date(), "description", "e1.jpg", empl1, "chateur",
+						new Date(), "nomStudio"));
+				
+				Media media6 = mRep.save(new Audio("Smart WATCH", 45, 1, new Date(), "description", "e2.jpg", empl1, "chateur",
+						new Date(), "nomStudio"));
+				
+				Media media7 = mRep.save(new Audio("Watch", 45, 1, new Date(), "description", "watch.jpg", empl1, "chateur",
+						new Date(), "nomStudio"));
+				
+				Media mediaV4 = mRep.save(l);
+				Media mediaV5 = mRep.save(l2);
+				Media mediaV6 = mRep.save(l1);
 
 	}
 

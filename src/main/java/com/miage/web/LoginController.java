@@ -84,7 +84,9 @@ public class LoginController {
 			session.setAttribute("loggedInUser", c);
 			//modelstatic.addAttribute("perso", c);
 			model.addAttribute("perso1",c);
-			model.addAttribute("UserCurrent",session.getId());
+			//model.addAttribute("UserCurrent",session.getId());
+			
+			model.addAttribute("UserCurrent",c);
 			return "client/clientTemplate";
 		}
 		return "redirect:login";

@@ -1,0 +1,96 @@
+
+/*-- gallery --*/
+.gallery-w3layouts {
+    background-color: #F7F7F7;
+}
+.gallery-grids {
+    margin: 3em 0 0;
+}
+.gallery-grid{
+	float:left;
+	width:25%;
+}
+.gallery-grid a {
+    display: block;
+    overflow: hidden;
+}
+.gallery-grid img{
+	padding:.5em;
+}
+img.zoom-img {
+     transform: scale(1, 1);
+	-webkit-transform: scale(1, 1);
+	-moz-transform: scale(1, 1);
+	-ms-transform: scale(1, 1);
+	-o-transform: scale(1, 1);
+	transition-timing-function: ease-out;
+	-webkit-transition-timing-function: ease-out;
+	-moz-transition-timing-function: ease-out;
+	-ms-transition-timing-function: ease-out;
+	-o-transition-timing-function: ease-out;
+	-webkit-transition-duration: .5s;
+	-moz-transition-duration: .5s;
+	-ms-transition-duration: .5s;
+	-o-transition-duration: .5s;
+}
+img.zoom-img:hover{
+    transform: scale(.9);
+	-webkit-transform: scale(.9);
+	-moz-transform: scale(.9);
+	-ms-transform: scale(.9);
+	-o-transform: scale(.9);
+	-webkit-transition-timing-function: ease-in-out;
+	-webkit-transition-duration: 750ms;
+	-moz-transition-timing-function: ease-in-out;
+	-moz-transition-duration: 750ms;
+	-ms-transition-timing-function: ease-in-out;
+	-o-transition-timing-function: ease-in-out;
+	-ms-transition-duration: 750ms;
+	-o-transition-duration: 750ms;
+	overflow: hidden;
+}
+.span1 {
+    margin: 18px 0;
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.span2{
+    border-bottom: 1px solid #Eee;
+    padding-bottom: 15px;
+}
+.span3 {
+    border-bottom: 1px solid #Eee;
+    padding: 15px 0px;
+}
+p.left {
+    float: left;
+    font-size: 14px;
+    color: #000;
+    letter-spacing: 3px;
+    margin-right: 5%;
+    width: 35%;
+    font-weight: 600;
+}
+p.right {
+    font-size: 14px;
+    float: left;
+    color: #949494;
+    letter-spacing: 2px;
+}
+.pop-up-content-agileits-w3layouts h4{
+	font-size:27px;
+	color:#fff;
+	text-align:left;
+	margin-bottom:25px;
+}
+.pop-up-content-agileits-w3layouts p{
+	color:#eee;
+	font-size:14px;
+	line-height:27px;
+}
+p.agileits{
+	margin:20px 0;
+}
+/*-- //gallery --*/
+
