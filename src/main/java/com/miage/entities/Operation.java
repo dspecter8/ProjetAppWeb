@@ -37,28 +37,7 @@ public abstract class Operation implements Serializable {
 	@JoinColumn(name="CODE_CLI")
 	private Client client;
 	
-/*	@ManyToOne
-	@JoinColumn(name="CODE_CLI")
-	private Client client;*/
-	
-/*	@ManyToOne
-	@JoinColumn(name="CODE_EMPL")
-	private Employer employee;
-	*/
-
-
-
-/*	public Employer getEmployee() {
-		return employee;
-	}
-
-
-
-	public void setEmployee(Employer employee) {
-		this.employee = employee;
-	}
-*/
-
+	private int quantiteMedia;
 
 
 	public Operation() {
@@ -72,7 +51,6 @@ public abstract class Operation implements Serializable {
 		super();
 		this.dateOperation = dateOperation;
 		this.client = client;
-		//this.media = media;
 	}
 	
 
@@ -81,6 +59,26 @@ public abstract class Operation implements Serializable {
 		this.dateOperation = dateOperation;
 		this.client = client;
 		this.media = media;
+	}
+	
+	public Operation(Date dateOperation,Client client, Media media, int qntMedia) {
+		super();
+		this.dateOperation = dateOperation;
+		this.client = client;
+		this.media = media;
+		this.quantiteMedia=qntMedia;
+	}
+
+
+
+	public int getQuantiteMedia() {
+		return quantiteMedia;
+	}
+
+
+
+	public void setQuantiteMedia(int quantiteMedia) {
+		this.quantiteMedia = quantiteMedia;
 	}
 
 

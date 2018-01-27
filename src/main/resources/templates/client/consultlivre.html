@@ -9,182 +9,185 @@
 <body>
 	<div layout:fragment="corpMedia">
 		<div class="container-fluid">
-			 
-			
-		 <!-- LIST livre -->
-			<h3>Liste des Livres </h3>
-			<div class="electro-img-left mask"  th:each="m:${listmedial}">
-			
+
+
+			<!-- LIST livre -->
+			<h3>Liste des Livres</h3>
+			<div class="electro-img-left mask" th:each="m:${listmedial}">
+
 				<div class="content-grid-effect slow-zoom vertical">
-						<div class="img-box"><img th:src="@{'../images/'+${m.photo}}" alt="image" class="img-responsive zoom-img"/></div>
-						<div class="info-box">
-							<div class="info-content electro-text simpleCart_shelfItem">
-								<h4 th:text="${m.nom}"  ></h4>
-								<span class="separator"></span>
-								<p><span class="item_price" th:text="${m.quantite}"></span></p>
-								<span class="separator"></span>
-							
-		
-		
-			  <form  method="POST" th:action="@{/client/consultl}">
-				
-								<a class="item_add hvr-outline-out preterLivre"  >Préter </a>
-								<a class="item_add hvr-outline-out button2 detailLivre" >Visualiser </a>
-				</form>				
-							</div>
+					<div class="img-box">
+						<img th:src="@{'../images/'+${m.photo}}" alt="image"
+							class="img-responsive zoom-img" />
+					</div>
+					<div class="info-box">
+						<div class="info-content simpleCart_shelfItem">
+							<h4 th:text="${m.nom}"></h4>
+							<span class="separator"></span>
+							<p>
+								<span class="item_price">Quantite :</span> <span
+									class="item_price" th:text="${m.quantite}"></span>
+							</p>
+
+							<form method="POST" th:action="@{/client/consultl}">
+
+								<a class="item_add hvr-outline-out preterLivre">Reserver </a>
+								<!-- <a class="item_add hvr-outline-out button2 detailLivre"	th:id="${m.codeMedia}">Visualiser </a>  -->
+								<a class="item_add hvr-outline-out button2 likeAudio">Like </a>
+							</form>
 						</div>
-						
+					</div>
+
 				</div>
 			</div>
-			
-<!-- END LIST VIDEO -->
-	
-		 
-			
-			  
-    
-    			<script type="text/javascript">
-			 $(".detailLivre").click(function(){
 
-                 $("#detailLivreModal").modal('show');
+			<!-- END LIST VIDEO -->
 
-               });
-			 
-			 $(".preterLivre").click(function(){
 
-                 $("#preterLivreModal").modal('show');
 
-               });
-			 
-			 </script>
-               
-    
-       <!-- Modal VISUAL DETAIL VIDEO -->
-                                <div class="modal fade" id="detailLivreModal" tabindex="-1" role="dialog" aria-labelledby="SignUpModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Name Livre</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                   
-                                                    <!--   Panel body Start    -->
-                                                     
-                                                        <form class="form-horizontal" >
-                                                        
-				
-                                                            <div class="form-group">
-                                                                <label  class="col-sm-2 control-label">Etat: </label>
-                                                                
-                                                                <div class="col-sm-10">
-                                                                ...disponible
-                                                                </div>
-                                                            </div>
-                                                
-                                                       <div class="form-group">
-                                                                <label  class="col-sm-2 control-label">Description: </label>
-                                                                
-                                                                <div class="col-sm-10">
-                                                                ...discription Video
-                                                                </div>
-                                                            </div>
-                                                            
-                                                             <div class="form-group">
-                                                                <label  class="col-sm-2 control-label">Auteur: </label>
-                                                                
-                                                                <div class="col-sm-10">
-                                                                ...auteur livre..
-                                                                </div>
-                                                            </div>
-                                                         
-                                                            
-                                                            <div class="form-group">
-                                                                <label  class="col-sm-2 control-label">Date de sortie: </label>
-                                                                
-                                                                <div class="col-sm-10">
-                                                                ...date de sortie
-                                                                </div>
-                                                            </div>
-                                                            
-                                                            <div class="form-group">
-                                                                <label  class="col-sm-2 control-label">Quantité restants: </label>
-                                                                
-                                                                <div class="col-sm-10">
-                                                                ...Quantité restants
-                                                                </div>
-                                                            </div>
-                                                            
-                                                      </form>
-                                                    
-                                                    <!--    Panel body Ends    -->
-                                               
-                                              </div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                             
-    
-       <!-- END VISUAL DETAIL LIVRE -->
-       
-       
-       <!-- Modal PRETER  LIVRE -->
-                                <div class="modal fade" id="preterLivreModal" tabindex="-1" role="dialog" aria-labelledby="SignUpModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" >Name Livre</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                   
-                                                    <!--   Panel body Start    -->
-                                                     
-                                                        <form class="form-horizontal" >
-                                                            <div class="form-group">
-                                                                <label  class="col-sm-2 control-label">Quantité</label>
-                                                                <div class="col-sm-10">
-                                                                    <input type="number" id="quanyiteEmpL" class="form-control"/>
-                                                                </div>
-                                                            </div>
-                                                
-                                                              
-                                                                 <div class="form-group">
-                                                                <label  class="col-sm-2 control-label">Date de retour</label>
-                                                            <div class='input-group date' id='datetimepicker1'>
-                                                                  <input type='text' class="form-control" />
-                                                                        <span class="input-group-addon">
-                                                                        <span class="glyphicon glyphicon-calendar"></span>
-                                                                       </span>
-                                                                      </div>
-           
-                                                                              <script type="text/javascript">
-                                                                                $(function () { $('#datetimepicker1').datetimepicker();    });
-                                                                                   </script>
-                                                              </div>
-                                                            
-                                                            <div class="form-group">
-                                                                <div class="col-sm-offset-2 col-sm-10">
-                                                                    <button type="submit" id="validerEmpL" class="btn btn-primary">Valider</button>
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                    
-                                                    <!--    Panel body Ends    -->
-                                               
-                                              </div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                             
-    
-       <!-- END PRETER  VIDEO -->
+
+			<!-- Modal VISUAL DETAIL VIDEO -->
+
+			<div class="modal fade" id="detailLivreModal" tabindex="-1"
+				role="dialog" aria-labelledby="SignUpModalLabel" aria-hidden="true">
+
+				<div class="modal-dialog modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="NameLivre">Name Livre</h5>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+
+							<!--   Panel body Start    -->
+
+							<form class="form-horizontal">
+
+
+								<div class="form-group">
+									<label class="col-sm-2 control-label">Etat: </label>
+
+									<div class="col-sm-10">...disponible</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-2 control-label">Description: </label>
+
+									<div class="col-sm-10">...discription Video</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-2 control-label">Auteur: </label>
+
+									<div class="col-sm-10">...auteur livre..</div>
+								</div>
+
+
+								<div class="form-group">
+									<label class="col-sm-2 control-label">Date de sortie: </label>
+
+									<div class="col-sm-10">...date de sortie</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-2 control-label">Quantité
+										restants: </label>
+
+									<div class="col-sm-10">...Quantité restants</div>
+								</div>
+
+							</form>
+
+							<!--    Panel body Ends    -->
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<script th:inline="javascript">
+				$(".detailLivre").click(function() {
+					var codeMedia = $(this).attr("id");
+					// window.alert("le code est "+codeMedia );
+					$("#detailLivreModal").modal('show');
+					$("#NameLivre").text(codeMedia);
+
+				});
+
+				$(".preterLivre").click(function() {
+
+					$("#preterLivreModal").modal('show');
+
+				});
+			</script>
+
+
+			<!-- END VISUAL DETAIL LIVRE -->
+
+
+			<!-- Modal PRETER  LIVRE -->
+			<div class="modal fade" id="preterLivreModal" tabindex="-1"
+				role="dialog" aria-labelledby="SignUpModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Name Livre</h5>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+
+							<!--   Panel body Start    -->
+
+							<form class="form-horizontal">
+								<div class="form-group">
+									<label class="col-sm-2 control-label">Quantité</label>
+									<div class="col-sm-10">
+										<input type="number" id="quanyiteEmpL" class="form-control" />
+									</div>
+								</div>
+
+
+								<div class="form-group">
+									<label class="col-sm-2 control-label">Date de retour</label>
+									<div class='input-group date' id='datetimepicker1'>
+										<input type='text' class="form-control" /> <span
+											class="input-group-addon"> <span
+											class="glyphicon glyphicon-calendar"></span>
+										</span>
+									</div>
+
+									<script type="text/javascript">
+										$(function() {
+											$('#datetimepicker1')
+													.datetimepicker();
+										});
+									</script>
+								</div>
+
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+										<button type="submit" id="validerEmpL" class="btn btn-primary">Valider</button>
+									</div>
+								</div>
+							</form>
+
+							<!--    Panel body Ends    -->
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+			<!-- END PRETER  VIDEO -->
 
 		</div>
 	</div>

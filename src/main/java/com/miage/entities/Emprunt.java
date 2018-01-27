@@ -17,10 +17,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @DiscriminatorValue("EMP")
 public class Emprunt extends Operation {
 
-	// @ManyToOne
-	// @JoinColumn(name="CODE_CLI")
-	// private Client client;
-	//private Date retourPrevu = new Date();
+	 
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date dateLimRetour = new Date((new Date()).getYear(),(new Date()).getMonth(),(new Date()).getDate()+15);
 
@@ -48,6 +45,12 @@ public class Emprunt extends Operation {
 	
 	public Emprunt(Date dateOperation, Date dateLimtRetour, Client client, Media media) {
 		super(dateOperation, client,media);
+		this.dateLimRetour =dateLimtRetour;
+		
+	}
+	
+	public Emprunt(Date dateOperation, Date dateLimtRetour, Client client, Media media,int qnt) {
+		super(dateOperation, client,media,qnt);
 		this.dateLimRetour =dateLimtRetour;
 		
 	}

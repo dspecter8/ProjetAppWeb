@@ -23,9 +23,15 @@ public interface EmpruntRepository extends JpaRepository<Emprunt, Long> {
 	List<Media> consulterMediaEmp(@Param("x")Client client);
 	
 	@Query("select e  from Emprunt e   where e.client=:x ")
-	List<Emprunt> consulterEmpByClient(Client client);
+	List<Emprunt> consulterEmpByClient(@Param("x")Client client);
 	
 	@Query("select e  from Emprunt e   where e.dateOperation=:x ")
-	List<Emprunt> consulterEmpByDateOp(Date dateOp);
+	List<Emprunt> consulterEmpByDateOp(@Param("x")Date dateOp);
+
+	//@Query("select e  from Emprunt e   where e.client=:x and CURRENT_DATE() <= e.dateLimRetour ORDER By dateLimRetour ASC")
+	@Query("select e  from Emprunt e   where e.client=:x ORDER By dateLimRetour ASC")
+	List<Emprunt> consulterRetSuivant(@Param("x")Client c);
+	
+
 
 }

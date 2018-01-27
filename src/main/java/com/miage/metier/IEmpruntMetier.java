@@ -25,6 +25,8 @@ public interface IEmpruntMetier {
 	public void supprimerEmp(Long codeEmp);
 	public void modifierEmp (Long codeEmp, Emprunt emp);
 	
+	public List <Emprunt> alertRetSuivant(Client client);
+	
 	
 	
 	

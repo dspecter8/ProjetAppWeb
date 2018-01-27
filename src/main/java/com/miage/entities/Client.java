@@ -34,17 +34,10 @@ public class Client extends Personne {
 	private Employer employe;
 	
 
-/*	@OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
-	private Collection<Operation> operations;*/
-
-	//@OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
 	@OneToMany(mappedBy = "client", fetch = FetchType.LAZY,cascade = {CascadeType.REMOVE,CascadeType.MERGE, CascadeType.PERSIST }, orphanRemoval = false)
 	private Collection<Operation> operations;
 	
-	//@OneToMany(mappedBy = "client", fetch = FetchType.LAZY,cascade = CascadeType.PERSIST)
-	//@OneToMany(mappedBy = "client", fetch = FetchType.LAZY,cascade = CascadeType.REMOVE, orphanRemoval = false)
-//	@OneToMany(mappedBy = "client", fetch = FetchType.LAZY,cascade = {CascadeType.REMOVE,CascadeType.MERGE, CascadeType.PERSIST }, orphanRemoval = false)
-//	private Collection<Retour> retours;
+
 	
 	public Client() {
 		super();
@@ -104,26 +97,6 @@ public class Client extends Personne {
 	public void setEtatAbonnement(int etatAbonnement) {
 		this.etatAbonnement = etatAbonnement;
 	}
-
-//
-//	public Collection<Emprunt> getEmprunts() {
-//		return emprunts;
-//	}
-//
-//
-//	public void setEmprunts(Collection<Emprunt> emprunts) {
-//		this.emprunts = emprunts;
-//	}
-//
-//
-//	public Collection<Retour> getRetours() {
-//		return retours;
-//	}
-//
-//
-//	public void setRetours(Collection<Retour> retours) {
-//		this.retours = retours;
-//	}
 
 	
 	

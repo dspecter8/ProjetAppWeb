@@ -28,4 +28,7 @@ public class Retour extends Operation {
 	public Retour(Date dateOperation, Client client,Media media) {
 		super(dateOperation, client,media);
 	}
+	public Retour(Date dateOperation, Client client,Media media,int qnt) {
+		super(dateOperation, client,media, qnt);
+	}
 }

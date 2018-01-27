@@ -39,25 +39,26 @@
 }
 
 @font-face { /* Définition d'une nouvelle police nommée CAC Champagne */
-    font-family: 'cac_champagneregular';
-    src: url('cac_champagne-webfont.eot');
-    src: url('cac_champagne-webfont.eot?#iefix') format('embedded-opentype'),
-         url('cac_champagne-webfont.woff') format('woff'),
-         url('cac_champagne-webfont.ttf') format('truetype'),
-         url('cac_champagne-webfont.svg#cac_champagneregular') format('svg');
+	font-family: 'cac_champagneregular';
+	src: url('cac_champagne-webfont.eot');
+	src: url('cac_champagne-webfont.eot?#iefix') format('embedded-opentype'),
+		url('cac_champagne-webfont.woff') format('woff'),
+		url('cac_champagne-webfont.ttf') format('truetype'),
+		url('cac_champagne-webfont.svg#cac_champagneregular') format('svg');
 }
 
-.logo /* Utilisation de la police qu'on vient de définir sur les titres */
-{
-    font-family: 'cac_champagneregular', Arial, serif;
+.logo
+	/* Utilisation de la police qu'on vient de définir sur les titres */ {
+	font-family: 'cac_champagneregular', Arial, serif;
 }
-
 </style>
 
-<link  rel="stylesheet" type="text/css" media="all"  th:href="@{../css/style5.css}"/>
+<link rel="stylesheet" type="text/css" media="all"
+	th:href="@{../css/style5.css}" />
 
-<script type="text/javascript"	th:src="@{../js/jquery-3.2.1.min.js}"></script>
+<script type="text/javascript" th:src="@{../js/jquery-3.2.1.min.js}"></script>
 <script type="text/javascript" th:src="@{../js/bootstrap.min.js}"></script>
+
 
 </head>
 <body class="bgbody">
@@ -72,18 +73,18 @@
 						<span class="icon-bar"></span> <span class="icon-bar"></span>
 					</button>
 					<a href="#page-top" class="navbar-brand navbar-brand-centered">
- 
+
 					</a>
 				</div>
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li class="hidden"><a href="#page-top"></a></li>
+						<!-- <li><a class="page-scroll first"
+							th:href="@{/client/accueil}">Accueil</a></li> -->
+
 						<li><a class="page-scroll first"
-							th:href="@{/client/accueil}">Accueil</a></li>
-							
-						<li><a class="page-scroll first" th:href="@{/client/consultm}">
-								Liste des Médias</a></li>
+							th:href="@{/client/consultm}"> Liste des Médias</a></li>
 						<li><a class="page-scroll" th:href="@{/client/consultme}">Liste
 								des Médias empruntés</a></li>
 						<li><a class="page-scroll" th:href="@{/client/consultmr}">Liste
@@ -104,39 +105,43 @@
 
 			<div class="col-sm-3 border">
 				<div class="panel panel-primary">
-					
+
 					<div class="panel-body">
 						<ul class="nav nav-pills nav-stacked">
-							<li class="active"><a href="#section1">Mes Informations</a></li>
-							<center>	<h1>Bienvenu</h1>	</center>
-					<br />
-					<table align="center" widh="100px">
-						<tr>
-							<td>Nom :</td>	<td><font th:text="${UserCurrent.nom}" face="Arial" size="5"></font></td>
-						</tr>
-						
-						<tr>
-							<td>Prénom :</td>	<td><font th:text="${UserCurrent.prenom}" face="Arial" size="5"></font></td>
-						</tr>
-						
-						<tr>
-							<td>Email :</td>	<td><font th:text="${UserCurrent.email}" face="Arial" size="5"></font></td>
-						</tr>
-						
-						<tr>
-							<td>Adresse :</td>	<td><font th:text="${UserCurrent.adress}" face="Arial" size="5"></font></td>
-						</tr>
-						
-						</table>
-					
+							<li class="active"><a href="#section1">RAPPEL</a></li>
+							<img src="../images/cloche.png" />
+							<h5>Votre prochain retour</h5>
+							<br />
+							<table align="center" widh="100px">
+								<tr>
+									<td>Article :</td>
+									<td><font th:text="${emprunteSuivant.media.nom}"></font></td>
+								</tr>
+
+								<tr>
+									<td>Date_Retour :</td>
+									<td><font th:text="${emprunteSuivant.dateLimRetour}"></font></td>
+								</tr>
+
+								<tr>
+									<td>Quantité :</td>
+									<td><font th:text="${emprunteSuivant.quantiteMedia}"></font></td>
+								</tr>
+
+
+							</table>
+
+
+
 						</ul>
 					</div>
 					<div style="color: red" align="center"
 						class="panel-body border-primary">
 						<ul class="nav nav-pills nav-stacked">
 							<li class="active"><a href="#section1">Calendrier</a></li>
-							<li><script src="http://informatiquegifs.free.fr/calendrier/2/fichier.js" type="text/javascript"></script>
-							</li>
+							<li><script
+									src="http://informatiquegifs.free.fr/calendrier/2/fichier.js"
+									type="text/javascript"></script></li>
 
 						</ul>
 					</div>
@@ -145,25 +150,21 @@
 			<div class="col-sm-9 border border-primary">
 				<div class="panel panel-primary">
 					<div class="panel-heading">ACCUEIL</div>
-					
-					<div class="panel-body">
-						<section layout:fragment="corps">
-							<p th:text="'Hello, ' + ${idSession}+ '!'" />
-						</section>
-						
-						  
 
-                                   
-                               
-                                
+					<div class="panel-body">
+						<section layout:fragment="corps"></section>
+
+
+
+
+
+
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	
-	 
- <!--//Contenent -->
-                    <script th:src="@{../js/client.js}"> </script>                 
+
+
 </body>
 </html>

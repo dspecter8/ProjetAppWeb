@@ -5,11 +5,20 @@
 <head>
 <title>Getting Started: Handling Form Submission</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" th:href="@{../css/style2.css}" />
+<link rel="stylesheet" th:href="@{../css/popup-box.css}" />
+<link rel="stylesheet" th:href="@{../css/uploadFile.css}" />
+
+
+<script type="text/javascript"	th:src="@{../js/jquery-3.2.1.min.js}"></script>
+<script type="text/javascript" th:src="@{../js/bootstrap.min.js}"></script>
+
 </head>
 <body>
 	<div layout:fragment="corps">
 		<div class="container-fluid">
-			<h3>Médias</h3>
+			<h3><a href="/client/consultm">Médias</a></h3>
 			<div class="row-sm-2 border">
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
@@ -25,7 +34,51 @@
 					<div class="panel panel-primary">
 						<div class="panel-body">
 							<section layout:fragment="corpMedia">
-								
+							
+							
+							 <!--   AFFICHER LA LISTE DE MEDIA AVEC TOUS LES DETAILS  -->
+							 
+                            <div id="listMediaClient" class="switchGroupManageMedia" th:each="m:${listmedia}">
+                                
+                                <div class="blog1-w3ls">
+                                    <div class="col-md-4 blog-image-w3l">
+                                    <img th:src="@{'../images/'+${m.photo}}" height="700px" width="300px" /> 
+                                    </div>
+                                    <div class="col-md-8 blog-text-w3ls">
+                                         <h4 th:text="${m.nom}"></h4> 
+                                        <div class="item_info">
+                                            <ul>
+                                                <li>QUANTIÉE RESTANT: <label th:text=" ${m.quantite}"> </label></li>
+                                                <li>Date de sortie: <label> <i class="glyphicon glyphicon-calendar" th:text=" ${m.anneeDeSortie}"></i> </label></li>
+                                                 <li><a href="#"><i class="glyphicon glyphicon-heart"></i>300 Likes</a></li>
+                                                                                                   
+                                            </ul>
+                                        </div>
+                                                                          
+                                        <div th:if="${m.etat}==1">
+                                        	<h6 style="color: green;">Disponible</h6>
+                                         <p th:text="${m.description}"></p>
+                                         <a href="#reserverMedia" class="blog-read" >Reserver</a>
+                                        <a href="#likeMedia" class="blog-read" >Like</a>
+                                        </div>
+                                        
+                                         <div th:unless="${m.etat}==1">
+                                          <h6 style="color: red;">InDisponible </h6>  
+                                      <p th:text="${m.description}"></p>
+                                        <a href="#likeMedia" class="blog-read" >Like</a>
+                                         </div>                                      
+                                      
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                 <br/>
+                                
+                            </div>
+                            
+                            <!--    Display all media   -->
+                            
+                            
+                            	
 							</section>
 						</div>
 					</div>
@@ -33,5 +86,9 @@
 			</div>
 		</div>
 	</div>
+	
+	<script type="text/javascript"		th:src="@{../js/jquery.magnific-popup.js}"></script>
+	<script type="text/javascript"		th:src="@{../js/modernizr.custom.53451.js}"></script>
+	<script type="text/javascript" th:src="@{../js/gallery.js}"></script>
 </body>
 </html>
