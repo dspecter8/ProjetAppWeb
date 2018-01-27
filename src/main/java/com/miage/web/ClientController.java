@@ -3,6 +3,7 @@
  */
 package com.miage.web;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -16,11 +17,14 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.miage.entities.Audio;
 import com.miage.entities.Client;
 import com.miage.entities.Emprunt;
 import com.miage.entities.Livre;
+import com.miage.entities.Media;
+import com.miage.entities.Reservation;
 import com.miage.entities.Retour;
 import com.miage.entities.Video;
 import com.miage.metier.implement.AudioMetierImp;
@@ -28,6 +32,7 @@ import com.miage.metier.implement.ClientMetierImpl;
 import com.miage.metier.implement.EmpruntMetierImp;
 import com.miage.metier.implement.LivreMetierImp;
 import com.miage.metier.implement.MediaMetierImp;
+import com.miage.metier.implement.ReservationMetierImp;
 import com.miage.metier.implement.RetourMetierImp;
 import com.miage.metier.implement.VideoMetierImp;
 
@@ -56,6 +61,9 @@ public class ClientController {
 	@Autowired
 	private EmpruntMetierImp empruntService;
 
+	@Autowired
+	private ReservationMetierImp resrvationService;
+	
 	@Autowired
 	private RetourMetierImp retourService;
 
@@ -189,5 +197,15 @@ public class ClientController {
 		model.addAttribute("emprunteSuivant", emprunt);
 		return "client/parametre";
 	}
+	
+	
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String verificationLogin(@RequestParam Reservation reservartion,	HttpSession session,	Model model) {
+		Client client = (Client) session.getValue("loggedInUser");
+		 
+		resrvationService.ajouterRes(new Reservation( reservartion.getDateOperation(), client,reservartion.getMedia() , reservartion.getQuantiteMedia()));
+		return "client/consultMedia";
+	}
+	
 
 }

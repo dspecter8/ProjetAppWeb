@@ -11,20 +11,23 @@
 <link rel="stylesheet" th:href="@{../css/uploadFile.css}" />
 
 
-<script type="text/javascript"	th:src="@{../js/jquery-3.2.1.min.js}"></script>
+<script type="text/javascript" th:src="@{../js/jquery-3.2.1.min.js}"></script>
 <script type="text/javascript" th:src="@{../js/bootstrap.min.js}"></script>
 
 </head>
 <body>
 	<div layout:fragment="corps">
 		<div class="container-fluid">
-			<h3><a href="/client/consultm">Médias</a></h3>
+			<h3>
+				<a href="/client/consultm">Médias</a>
+			</h3>
 			<div class="row-sm-2 border">
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li class="hidden"><a href="#page-top"></a></li>
-						<li><a class="page-scroll first" th:href="@{/client/consulta}">Audio</a></li>
+						<li><a class="page-scroll first"
+							th:href="@{/client/consulta}">Audio</a></li>
 						<li><a class="page-scroll" th:href="@{/client/consultl}">Livre</a></li>
 						<li><a class="page-scroll" th:href="@{/client/consultv}">Video</a></li>
 					</ul>
@@ -34,51 +37,132 @@
 					<div class="panel panel-primary">
 						<div class="panel-body">
 							<section layout:fragment="corpMedia">
-							
-							
-							 <!--   AFFICHER LA LISTE DE MEDIA AVEC TOUS LES DETAILS  -->
-							 
-                            <div id="listMediaClient" class="switchGroupManageMedia" th:each="m:${listmedia}">
-                                
-                                <div class="blog1-w3ls">
-                                    <div class="col-md-4 blog-image-w3l">
-                                    <img th:src="@{'../images/'+${m.photo}}" height="700px" width="300px" /> 
-                                    </div>
-                                    <div class="col-md-8 blog-text-w3ls">
-                                         <h4 th:text="${m.nom}"></h4> 
-                                        <div class="item_info">
-                                            <ul>
-                                                <li>QUANTIÉE RESTANT: <label th:text=" ${m.quantite}"> </label></li>
-                                                <li>Date de sortie: <label> <i class="glyphicon glyphicon-calendar" th:text=" ${m.anneeDeSortie}"></i> </label></li>
-                                                 <li><a href="#"><i class="glyphicon glyphicon-heart"></i>300 Likes</a></li>
-                                                                                                   
-                                            </ul>
-                                        </div>
-                                                                          
-                                        <div th:if="${m.etat}==1">
-                                        	<h6 style="color: green;">Disponible</h6>
-                                         <p th:text="${m.description}"></p>
-                                         <a href="#reserverMedia" class="blog-read" >Reserver</a>
-                                        <a href="#likeMedia" class="blog-read" >Like</a>
-                                        </div>
-                                        
-                                         <div th:unless="${m.etat}==1">
-                                          <h6 style="color: red;">InDisponible </h6>  
-                                      <p th:text="${m.description}"></p>
-                                        <a href="#likeMedia" class="blog-read" >Like</a>
-                                         </div>                                      
-                                      
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                 <br/>
-                                
-                            </div>
-                            
-                            <!--    Display all media   -->
-                            
-                            
-                            	
+
+
+								<!--   AFFICHER LA LISTE DE MEDIA AVEC TOUS LES DETAILS  -->
+
+								<div id="listMediaClient" class="switchGroupManageMedia"
+									th:each="m:${listmedia}">
+
+									<div class="blog1-w3ls">
+										<div class="col-md-4 blog-image-w3l">
+											<img th:src="@{'../images/'+${m.photo}}" height="700px"
+												width="300px" />
+										</div>
+										<div class="col-md-8 blog-text-w3ls">
+											<h4 th:text="${m.nom}"></h4>
+											<div class="item_info">
+												<ul>
+													<li>QUANTIÉE RESTANT: <label th:text=" ${m.quantite}">
+													</label></li>
+													<li>Date de sortie: <label> <i
+															class="glyphicon glyphicon-calendar"
+															th:text=" ${m.anneeDeSortie}"></i>
+													</label></li>
+													<li><a href="#"><i
+															class="glyphicon glyphicon-heart"></i>300 Likes</a></li>
+
+												</ul>
+											</div>
+
+											<div th:if="${m.etat}==1">
+												<h6 style="color: green;">Disponible</h6>
+												<p th:text="${m.description}"></p>
+												<a href="#reserverMedia" class="blog-read reserverMedia">Reserver</a> <a
+													href="#likeMedia" class="blog-read">Like</a>
+											</div>
+
+											<div th:unless="${m.etat}==1">
+												<h6 style="color: red;">InDisponible</h6>
+												<p th:text="${m.description}"></p>
+												<a href="#likeMedia" class="blog-read">Like</a>
+											</div>
+
+										</div>
+										<div class="clearfix"></div>
+									</div>
+									<br />
+
+								</div>
+
+								<!--    Display all media   -->
+
+
+								<script th:inline="javascript">
+									$(".reserverMedia").click(function() {
+
+										$("#reserverMediaModal").modal('show');
+
+									});
+								</script>
+								<!-- Modal PRETER  LIVRE -->
+								<div class="modal fade" id="reserverMediaModal" tabindex="-1"
+									role="dialog" aria-labelledby="SignUpModalLabel"
+									aria-hidden="true">
+									<div class="modal-dialog modal-lg" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title">Name Media</h5>
+												<button type="button" class="close" data-dismiss="modal"
+													aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<div class="modal-body">
+
+												<!--   Panel body Start    -->
+
+												<form class="form-horizontal">
+													<div class="form-group">
+														<label class="col-sm-2 control-label">Quantité</label>
+														<div class="col-sm-10">
+															<input type="number" id="quanyiteEmpL"
+																class="form-control" />
+														</div>
+													</div>
+
+
+													<div class="form-group">
+														<label class="col-sm-2 control-label">Date de
+															Reservation</label>
+														<div class='input-group date' id='datetimepicker1'>
+															<input type='text' class="form-control" /> <span
+																class="input-group-addon"> <span
+																class="glyphicon glyphicon-calendar"></span>
+															</span>
+														</div>
+
+														<script type="text/javascript">
+															$(function() {
+																$(
+																		'#datetimepicker1')
+																		.datetimepicker();
+															});
+														</script>
+													</div>
+
+													<div class="form-group">
+														<div class="col-sm-offset-2 col-sm-10">
+															<button type="submit" id="validerEmpL"
+																class="btn btn-primary">Valider</button>
+														</div>
+													</div>
+												</form>
+
+												<!--    Panel body Ends    -->
+
+											</div>
+
+										</div>
+									</div>
+								</div>
+
+
+								<!-- END PRETER  VIDEO -->
+
+
+
+
 							</section>
 						</div>
 					</div>
@@ -86,9 +170,11 @@
 			</div>
 		</div>
 	</div>
-	
-	<script type="text/javascript"		th:src="@{../js/jquery.magnific-popup.js}"></script>
-	<script type="text/javascript"		th:src="@{../js/modernizr.custom.53451.js}"></script>
+
+	<script type="text/javascript"
+		th:src="@{../js/jquery.magnific-popup.js}"></script>
+	<script type="text/javascript"
+		th:src="@{../js/modernizr.custom.53451.js}"></script>
 	<script type="text/javascript" th:src="@{../js/gallery.js}"></script>
 </body>
 </html>
