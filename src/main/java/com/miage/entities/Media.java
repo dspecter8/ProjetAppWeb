@@ -33,6 +33,8 @@ public abstract class Media implements Serializable {
 	private int quantite;
 	private int etat;
 	
+	private String tag;
+	
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date dateCreation;
 	
@@ -86,7 +88,19 @@ public abstract class Media implements Serializable {
 		this.description = description;
 		//this.photo = photo;
 	}
-
+		
+	public Media(Long codeMedia, String nom, int quantite, int etat, Date dateCreation, String description,String tag) {
+		super();
+		this.codeMedia = codeMedia;
+		this.nom = nom;
+		this.quantite = quantite;
+		this.etat = etat;
+		this.dateCreation = dateCreation;
+		this.description = description;
+		this.tag = tag;
+		//this.photo = photo;
+	}
+	
 	public Long getCodeMedia() {
 		return codeMedia;
 	}
@@ -101,6 +115,14 @@ public abstract class Media implements Serializable {
 
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+	
+	public String getTag() {
+		return tag;
+	}
+
+	public void setTag(String tag) {
+		this.tag = tag;
 	}
 
 	public int getQuantite() {

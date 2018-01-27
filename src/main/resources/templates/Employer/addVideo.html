@@ -9,7 +9,7 @@
 <body>
 	<div layout:fragment="corpMedia">
 		<div class="container-fluid">
-			<h3>Création d'un audio</h3>
+			<h3>Création d'une vidéo</h3>
 			<form th:action="@{savev}"  th:object="${videoad}" class="form-horizontal"
 				enctype="multipart/form-data" method="post" role="form">
 				<div class='row'>
@@ -82,13 +82,13 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="photo" class="col-sm-2 control-label">Couver.
-							:</label>
-						<div class="col-sm-8">
-							<input type="text" th:field="*{photo}" class="form-control"
-								name="photo" id="photo" /> <span th:errors="*{photo}"></span>
+							<label for="photo" class="col-sm-2 control-label">Couver.
+								:</label>
+							<div class="col-sm-8">
+								<input type="file" name="picture" class="form-control"
+									 id="photo" /> <span th:errors="${videoad.photo}"></span>
+							</div>
 						</div>
-					</div>
 
 					<div class="form-group">
 						<label for="adresse" class="col-sm-2 control-label">Descrip.

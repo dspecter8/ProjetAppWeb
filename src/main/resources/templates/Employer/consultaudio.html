@@ -16,11 +16,17 @@
 						<label> Recherche par nom :</label> <input type="text" name="motCle" />
 						<button type="submit">Chercher</button>
 					</div>
+					
+					<div class="form-group">
+						<label> Recherche par tag :</label> <input type="text" name="motCleTag" />
+						<button type="submit">Chercher</button>
+					</div>
 				</form>
 			</div>
 			<table class="table table-striped">
 				<tr>
 					<th>Nom</th>
+					<th>Tag</th>
 					<th>Date ajout</th>
 					<th>Auteur/Comp.</th>
 					<th>Etat</th>
@@ -30,6 +36,7 @@
 
 				<tr th:each="m:${PageEmployera}">
 					<td th:text="${m.nom}"></td>
+					<td><span class="label label-success" th:text="${m.tag}"></span></td>
 					<td th:text="${m.dateCreation}"></td>
 					<td th:text="${m.chateur}"></td>
 					<td th:text="${m.etat}"></td>

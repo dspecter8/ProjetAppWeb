@@ -19,6 +19,9 @@ public interface AudioRepository extends JpaRepository<Audio, Long> {
 	@Query("select e from Audio e where e.nom like :x")
 	public List<Audio> findByName(@Param("x")String mc);
 	
+	@Query("select e from Audio e where e.tag like :x")
+	public Page<Audio> findByTag(@Param("x")String mc,Pageable page);
+	
 	@Query("select e from Audio e where e.etat=:x")
 	public List<Audio> lstMediaByEtat(@Param("x")int etat);
 	
