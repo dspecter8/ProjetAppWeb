@@ -75,4 +75,10 @@ public class EmpruntMetierImp implements IEmpruntMetier {
 		
 	}
 
+	@Override
+	public List<Emprunt> alertRetSuivant(Client client) {
+		 
+		return empruntRep.consulterRetSuivant(client);
+	}
+
 }

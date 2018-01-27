@@ -9,23 +9,47 @@
 <body>
 	<div layout:fragment="corps">
 		<div class="container-fluid">
-			<h3>Médias Retournés</h3>
+			<h3> <a href="/client/consultmr">Retours </a></h3>
 			<div class="row-sm-2 border">
-				<div class="collapse navbar-collapse"
-					id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li class="hidden"><a href="#page-top"></a></li>
-						<li><a class="page-scroll first" th:href="@{/client/consultaRet}">Audio</a></li>
-						<li><a class="page-scroll" th:href="@{/client/consultlRet}">Livre</a></li>
-						<li><a class="page-scroll" th:href="@{/client/consultvRet}">Video</a></li>
-					</ul>
-				</div>
 
 				<div class="row-sm-10 border border-primary">
 					<div class="panel panel-primary">
 						<div class="panel-body">
 							<section layout:fragment="corpMedia">
 								
+								
+								
+								 <!--   AFFICHER LA LISTE DE EMPRUNTS  -->
+							 
+                            <div id="listMediaClient" class="switchGroupManageMedia" th:each="m:${listmediaret}">
+                                
+                                <div class="blog1-w3ls">
+                                    <div class="col-md-4 blog-image-w3l">
+                                    <img th:src="@{'../images/'+${m.media.photo}}" /> 
+                                    </div>
+                                    <div class="col-md-8 blog-text-w3ls">
+                                         <h4 th:text="${m.media.nom}"></h4> 
+                                        <div class="item_info">
+                                            <ul>
+                                                <!-- <li><i class="glyphicon glyphicon-user"></i></li> -->
+                                                <li>Article: <label th:text=" ${m.media.nom}"></label> </li>
+                                                <li>Date de Retour: <i class="glyphicon glyphicon-calendar" th:text=" ${m.dateOperation}"></i> </li>
+                                                 <li><a href="#"><i class="glyphicon  glyphicon-shopping-cart"  th:text=" ${m.quantiteMedia}"></i></a></li>
+                                            </ul>
+                                        </div>
+                                                                                                                          
+                                      
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                 <br/>
+                                
+                            </div>
+                            
+                            <!--    fin AFFICHER LA LISTE DE EMPRUNTS   -->
+                            
+                            
+                            
 							</section>
 						</div>
 					</div>

@@ -13,46 +13,6 @@
 	<div layout:fragment="corpMedia">
 		<div class="container-fluid">
 
-			<!-- 			<table class="table table-striped"> -->
-			<!-- 				<tr> -->
-			<!-- 					<th>Nom</th> -->
-
-			<!-- 					<th>ID Employer</th> -->
-			<!-- 					<th>Etat</th> -->
-			<!-- 					<th>Quantité disponible</th> -->
-			<!-- 					<th>Description</th> -->
-			<!-- 					<th>Photo</th> -->
-			<!-- 					<th>Acteurs</th> -->
-			<!-- 					<th>Réalisateur</th> -->
-			<!-- 					<th>Année de Création</th> -->
-			<!-- 					<th>Année de sortie</th> -->
-
-			<!-- 				</tr> -->
-
-			<!-- 				<tr th:each="m:${listmediav}"> -->
-			<!-- 					<td th:text="${m.nom}"></td> -->
-
-
-			<!-- 					<td th:text="${m.employe.code}"></td> -->
-			<!-- 					<td th:text="${m.etat}"></td> -->
-			<!-- 					<td th:text="${m.quantite}"></td> -->
-
-			<!-- 					<td th:text="${m.description}"></td> -->
-			<!-- 					<td th:text="${m.photo}"></td> -->
-			<!-- 					<td th:text="${m.acteur}"></td> -->
-			<!-- 					<td th:text="${m.realisateur}"></td> -->
-
-			<!-- 					<td th:text="${m.dateCreation}"></td> -->
-			<!-- 					<td th:text="${m.anneeDeSortie}"></td> -->
-			<!-- 					<td><a th:href="@{visualiserVideo(code=${m.codeMedia})}">Visualiser</a></td> -->
-			<!-- 					<td><a -->
-			<!-- 						onclick="return confirm('Vous êtes sur le point d'effectuer un Emprunt. Voulez-vous continuer?')" -->
-			<!-- 						th:href="@{preterVideo(code=${m.codeMedia})}">Préter</a></td> -->
-			<!-- 				</tr> -->
-			<!-- 			</table> -->
-
-
-
 			<!-- LIST VIDEO -->
 			<h3>Liste des Videos</h3>
 			<div class="electro-img-left mask" th:each="m:${listmediav}">
@@ -67,21 +27,16 @@
 							<h4 th:text="${m.nom}"></h4>
 							<span class="separator"></span>
 							<p>
+								 <span class="item_price"  >Quantite  :</span>  
 								<span class="item_price" th:text="${m.quantite}"></span>
 							</p>
 							<span class="separator"></span>
 
-
-
-
-							<!-- 			     	<form  th:action="@{/client/consultv}"	 method="post" th:modelAttribute="nameVideo">  -->
-
-							<!-- 					<a class="item_add hvr-outline-out preterVideo" th:href="@{/client/consultv/s(videoNom=${m.nom})}" >Préter </a> -->
-
 							<form method="POST" action="#" th:object="${video}">
-								<a class="item_add hvr-outline-out preterVideo">Préter </a> <a
-									class="item_add hvr-outline-out button2 detailVideo">Visualiser
-								</a>
+								<a class="item_add hvr-outline-out preterVideo">Reserver </a> 
+					<!-- 			<a class="item_add hvr-outline-out button2 detailVideo">Visualiser</a> -->
+								<a class="item_add hvr-outline-out button2 likeAudio" >Like </a>
+								
 							</form>
 						</div>
 					</div>
@@ -116,7 +71,7 @@
 				<div class="modal-dialog modal-lg" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title" th:text="${m.nom}">Name Video</h5>
+							<h5 class="modal-title">Name Video</h5>
 							<button type="button" class="close" data-dismiss="modal"
 								aria-label="Close">
 								<span aria-hidden="true">&times;</span>

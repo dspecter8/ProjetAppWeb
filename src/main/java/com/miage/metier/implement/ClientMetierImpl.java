@@ -49,23 +49,23 @@ public class ClientMetierImpl  implements IClientMetier{
 	}
 
 	@Override
-	public void modifierClient(Long code, Client c) {
-		Client c2= clientRep.findOne(code);
-		c2.setAdress(c.getAdress());
-		c2.setCivilite(c.getCivilite());
-		c2.setDebutAbonnement(c.getDebutAbonnement());
-		c2.setEmail(c.getEmail());
-		c2.setEmploye(c.getEmploye());
-		c2.setEtatAbonnement(c.getEtatAbonnement());
-		c2.setFinAbonnement(c.getFinAbonnement());
-		c2.setDebutAbonnement(c.getDebutAbonnement());
-		c2.setMotDePasse(c.getMotDePasse());
-		c2.setNom(c.getNom());
-		c2.setPrenom(c.getPrenom());
-		c2.setTelephone(c.getTelephone());
-		c2.setOperations(c.getOperations());
+	public void modifierClient(  Client c) {
+//		Client c2= clientRep.findOne(code);
+//		c2.setAdress(c.getAdress());
+//		c2.setCivilite(c.getCivilite());
+//		c2.setDebutAbonnement(c.getDebutAbonnement());
+//		c2.setEmail(c.getEmail());
+//		c2.setEmploye(c.getEmploye());
+//		c2.setEtatAbonnement(c.getEtatAbonnement());
+//		c2.setFinAbonnement(c.getFinAbonnement());
+//		c2.setDebutAbonnement(c.getDebutAbonnement());
+//		c2.setMotDePasse(c.getMotDePasse());
+//		c2.setNom(c.getNom());
+//		c2.setPrenom(c.getPrenom());
+//		c2.setTelephone(c.getTelephone());
+//		c2.setOperations(c.getOperations());
 		
-		clientRep.saveAndFlush(c2);
+		clientRep.saveAndFlush(c);
 	}
 
 	@Override

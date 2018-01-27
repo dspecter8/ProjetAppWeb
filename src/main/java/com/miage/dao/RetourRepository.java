@@ -23,10 +23,10 @@ public interface RetourRepository extends JpaRepository<Retour, Long> {
 	List<Media> consulterMediaRet(@Param("x")Client client);
 
 	@Query("select e  from Retour e   where e.client=:x ")
-	List<Retour> consulterRetByClient(Client client);
+	List<Retour> consulterRetByClient(@Param("x")Client client);
 	
 	@Query("select e  from Retour e   where e.dateOperation=:x ")
-	List<Retour> consulterRetByDateOp(Date dateOp);
+	List<Retour> consulterRetByDateOp(@Param("x")Date dateOp);
 
 
 }

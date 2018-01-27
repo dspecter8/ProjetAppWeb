@@ -10,14 +10,37 @@
 	<div layout:fragment="corps">
 		<div class="container-fluid">
 			<h3>Parametre administrateur</h3>
-								<div class="panel-body">
-						<ul class="nav nav-pills nav-stacked">
-							<li class="active"><a href="#">Information
-									Client</a></li>
-							<br />
-							<br />
-						</ul>
+			<div class="panel-body">
+				<div class="col-sm-3 border border-primary">
+					<div class=" row panel panel-primary">
+						<div class="panel-heading">Consulter</div>
+						<div class="panel-body">
+							<a class="page-scroll" th:href="@{/client/consultClient}"><img
+								width="130px" height="120px" align="center" id="img_im"
+								th:src="@{../images/cons.png}" alt="First slide" /></a>
+						</div>
 					</div>
+					<div class=" row panel panel-primary">
+						<div class="panel-heading">Mise à jour du compte</div>
+						<div class="panel-body">
+							<a class="page-scroll" th:href="@{/client/edit}"><img
+								width="130px" height="120px" align="center" id="img_im"
+								th:src="@{../images/maj.png}" alt="First slide" /></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-9 border border-primary">
+					<div class="panel panel-primary">
+						<div class="panel-body">
+							<section layout:fragment="param">
+								<a class="page-scroll" th:href="@{/client/edit}"><img
+									width="130px" height="120px" align="center" id="img_im"
+									th:src="@{../images/maj.png}" alt="First slide" /></a>
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>

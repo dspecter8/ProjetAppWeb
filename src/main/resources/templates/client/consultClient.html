@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="client/parametre">
+<head>
+<title>Getting Started: Handling Form Submission</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div layout:fragment="param">
+		<div class="container-fluid">
+			<h3>Informations utilisateur</h3>
+			
+			<div class="container">
+			
+			<table >
+				  	<tr>
+							<td>Nom :</td>	<td><font th:text="${UserCurrent.nom}" ></font></td>
+						</tr>
+						
+						<tr>
+							<td>Prenom :</td>	<td><font th:text="${UserCurrent.prenom}" ></font></td>
+						</tr>
+						
+						<tr>
+							<td>Email :</td>	<td><font th:text="${UserCurrent.email}"></font></td>
+						</tr> 
+						
+						<tr>
+							<td>Adresse :</td>	<td><font th:text="${UserCurrent.adress}"></font></td>
+						</tr> 
+						
+						<tr>
+							<td>TEL :</td>	<td><font th:text="${UserCurrent.telephone}"></font></td>
+						</tr> 
+					 						
+						</table>
+						
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

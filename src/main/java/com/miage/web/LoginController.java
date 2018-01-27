@@ -16,8 +16,10 @@ import org.springframework.web.servlet.ModelAndView;
 import com.miage.entities.Administrateur;
 import com.miage.entities.Client;
 import com.miage.entities.Employer;
+import com.miage.entities.Emprunt;
 import com.miage.entities.Personne;
 import com.miage.metier.IAdminMetier;
+import com.miage.metier.implement.EmpruntMetierImp;
 
 
 //@RequestMapping(value = "/in")
@@ -27,6 +29,9 @@ public class LoginController {
 
 	@Autowired
 	private IAdminMetier admin;
+	
+	@Autowired
+	private EmpruntMetierImp empruntService;
 	
 	public  ModelMap modelstatic = new ModelMap();
 	
@@ -85,6 +90,8 @@ public class LoginController {
 			//modelstatic.addAttribute("perso", c);
 			model.addAttribute("perso1",c);
 			//model.addAttribute("UserCurrent",session.getId());
+			Emprunt emprunt= empruntService.alertRetSuivant(c).get(0);
+			 model.addAttribute("emprunteSuivant",emprunt);
 			
 			model.addAttribute("UserCurrent",c);
 			return "client/clientTemplate";

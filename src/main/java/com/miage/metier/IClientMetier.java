@@ -6,7 +6,7 @@ import org.springframework.data.domain.Pageable;
 import com.miage.entities.Client;
 
 /**
- * @author Specter
+ * @author HRezgui
  *
  */
 public interface IClientMetier {
@@ -20,7 +20,7 @@ public interface IClientMetier {
 	
 	public Page<Client> chercherClientParNom(String nom, Pageable page);
 	public Page<Client> listClient(Pageable page);
-	public void modifierClient(Long code, Client client);
+	public void modifierClient( Client client);
 	public void effacerClient(Long code);
 	
 }

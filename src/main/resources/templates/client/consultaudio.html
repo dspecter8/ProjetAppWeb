@@ -22,15 +22,18 @@
 							<div class="info-content electro-text simpleCart_shelfItem">
 								<h4 th:text="${m.nom}"  ></h4>
 								<span class="separator"></span>
-								<p><span class="item_price" th:text="${m.quantite}"></span></p>
+									 
+								<p><span class="item_price"  >Quantite  :</span>  
+								<span class="item_price" th:text="${m.quantite}"></span></p>
 								<span class="separator"></span>
 							
 		
 		
 			  <form  method="POST" th:action="@{/client/consulta}">
 				
-								<a class="item_add hvr-outline-out preterAudio"  >Préter </a>
-								<a class="item_add hvr-outline-out button2 detailAudio" >Visualiser </a>
+								<a class="item_add hvr-outline-out reserverAudio"  >Reserver </a>
+								<!-- <a class="item_add hvr-outline-out button2 detailAudio">Visualiser </a> -->
+								<a class="item_add hvr-outline-out button2 likeAudio" >Like </a>
 				</form>				
 							</div>
 						</div>
@@ -51,9 +54,9 @@
 
                });
 			 
-			 $(".preterAudio").click(function(){
+			 $(".reserverAudio").click(function(){
 
-                 $("#preterAudioModal").modal('show');
+                 $("#reserverAudioModal").modal('show');
 
                });
 			 
@@ -132,7 +135,7 @@
        
        
        <!-- Modal PRETER  Audio -->
-                                <div class="modal fade" id="preterAudioModal" tabindex="-1" role="dialog" aria-labelledby="SignUpModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="reserverAudioModal" tabindex="-1" role="dialog" aria-labelledby="SignUpModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
