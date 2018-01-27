@@ -63,7 +63,7 @@ public class KfhMediaApplication implements CommandLineRunner {
 		Employer empl1 = emplRep
 				.save(new Employer("22", "prenom", "ema7il1", "motDePasse", "adress", new Date(), "Non actif", adm));
 		Client client = cliRep.save(new Client("Client1nom", "Client1prenom", "Cli7ent1email", "Client1motDePasse",
-				"Client1adress", new Date(), new Date(), 0, empl1));
+				"Client1adress", new Date(), new Date(), 1, empl1));
 		Employer em2 = new Employer("22111", "pre222nom", "emai7l2", "mot222DePasse", "ad2222ress", new Date(), "Non actif",
 				adm);
 		emplRep.save(em2);
@@ -89,7 +89,7 @@ public class KfhMediaApplication implements CommandLineRunner {
 				emMetier.ajouterLivre(l);
 				
 				Client cl = new Client("Client1nom", "Client1Metierprenom", "ClieMetiernt1email", "ClientMetier1motDePasse", "ClientMetier1adress",
-						new Date(), new Date(), 0, empl1);
+						new Date(), new Date(), 1, empl1);
 				emMetier.ajouterClient(cl);
 				admMetier.ajouterEmployer(em3);
 				

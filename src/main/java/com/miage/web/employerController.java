@@ -9,8 +9,11 @@ import java.io.IOException;
 import java.util.Date;
 
 import javax.validation.Valid;
-
+import com.miage.util.HibernateUtil;
 import org.apache.commons.io.IOUtils;
+import org.hibernate.SessionFactory;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
@@ -110,9 +113,16 @@ public class employerController {
 		if (b.hasErrors()) {
 			return "Employer/editClient";
 		}
-		Client e1 = ee;
-		c.delete(ee);
-		c.saveAndFlush(e1);
+		
+		//persist example - with transaction
+		/*Session session = HibernateUtil.getSessionFactory().openSession();
+		session.update(ee);
+		session.getTransaction().commit();
+		session.close();*/
+		//Client e1 = ee;
+		Client myClient = c.findOne(ee.getCode());
+		myClient = ee;
+		c.save(myClient);
 		return "redirect:consultClient";
 	}
 
@@ -158,8 +168,11 @@ public class employerController {
 
 	@RequestMapping("/consulta")
 	public String consulta(Model model, @RequestParam(name = "page", defaultValue = "0") int p,
-			@RequestParam(name = "motCle", defaultValue = "") String mc) {
+			@RequestParam(name = "motCle", defaultValue = "") String mc,@RequestParam(name = "motCleTag", defaultValue = "") String tag) {
 		Page<Audio> emp = au.findByName("%" + mc + "%", new PageRequest(p, 8));
+		
+		if(!tag.isEmpty())
+			emp = au.findByTag("%" + mc + "%", new PageRequest(p, 8));
 
 		int nbPage = emp.getTotalPages();
 		int[] pages = new int[nbPage];
@@ -210,6 +223,22 @@ public class employerController {
 		if (b.hasErrors()) {
 			return "Employer/editAudio";
 		}
+		
+		Audio myAudio = au.findOne(au1.getCodeMedia());
+		String oldPhoto = myAudio.getPhoto();
+		
+		if (!(file.isEmpty())) {
+			au1.setPhoto(file.getOriginalFilename());
+			file.transferTo(new File(imageDir + au1.getCodeMedia()));
+		}
+		else
+		{
+			au1.setPhoto(oldPhoto);
+		}
+		
+		myAudio = au1;
+		au.save(myAudio);
+		/*
 		if (!(file.isEmpty())) {
 			au1.setPhoto(file.getOriginalFilename());
 		}
@@ -218,7 +247,7 @@ public class employerController {
 
 			au1.setPhoto(file.getOriginalFilename());
 			file.transferTo(new File(imageDir + au1.getCodeMedia()));
-		}
+		}*/
 		return "redirect:consulta";
 	}
 
@@ -258,13 +287,24 @@ public class employerController {
 	}
 
 	@RequestMapping(value = "/updatev", method = RequestMethod.POST)
-	public String updatev(@Valid Video vid, BindingResult b) {
+	public String updatev(@Valid Video vid, BindingResult b, @RequestParam(name = "picture") MultipartFile file) throws IllegalStateException, IOException {
 		if (b.hasErrors()) {
 			return "Employer/editVideo";
 		}
-		Video e1 = vid;
-		v.delete(vid);
-		v.saveAndFlush(e1);
+		Video myVideo = v.findOne(vid.getCodeMedia());
+		String oldPhoto = myVideo.getPhoto();
+		
+		if (!(file.isEmpty())) {
+			vid.setPhoto(file.getOriginalFilename());
+			file.transferTo(new File(imageDir + vid.getCodeMedia()));
+		}
+		else
+		{
+			vid.setPhoto(oldPhoto);
+		}
+		
+		myVideo = vid;
+		v.save(myVideo);
 		return "redirect:consultv";
 	}
 
@@ -346,15 +386,26 @@ public class employerController {
 	}
 
 	@RequestMapping(value = "/updatel", method = RequestMethod.POST)
-	public String updatel(@Valid Livre liv, BindingResult b) {
+	public String updatel(@Valid Livre liv, BindingResult b,@RequestParam(name = "picture") MultipartFile file) throws IllegalStateException, IOException {
 		if (b.hasErrors()) {
 			return "Employer/editLivre";
 		}
-		Long idd = liv.getCodeMedia();
-		Livre e1 = liv;
-		e1.setCodeMedia(idd);
-		l.delete(liv);
-		l.saveAndFlush(e1);
+		
+		Livre myLivre = l.findOne(liv.getCodeMedia());
+		String oldPhoto = myLivre.getPhoto();
+		
+		if (!(file.isEmpty())) {
+			liv.setPhoto(file.getOriginalFilename());
+			file.transferTo(new File(imageDir + liv.getCodeMedia()));
+		}
+		else
+		{
+			liv.setPhoto(oldPhoto);
+		}
+		
+		myLivre = liv;
+		l.save(myLivre);
+		
 		return "redirect:consultl";
 	}
 

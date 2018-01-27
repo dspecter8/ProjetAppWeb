@@ -23,7 +23,6 @@
 				<tr>
 					<th>Nom</th>
 					<th>Date ajout</th>
-					<th>ID Employer</th>
 					<th>Etat</th>
 					<th>Quantité disponible</th>
 					<th>Description</th>
@@ -33,7 +32,6 @@
 				<tr th:each="m:${PageEmployerl}">
 					<td th:text="${m.nom}"></td>
 					<td th:text="${m.dateCreation}"></td>
-					<td th:text="${m.employe}"></td>
 					<td th:text="${m.etat}"></td>
 					<td th:text="${m.quantite}"></td>
 					<td th:text="${m.description}"></td>

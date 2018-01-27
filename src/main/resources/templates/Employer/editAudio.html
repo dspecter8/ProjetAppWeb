@@ -9,7 +9,7 @@
 <body>
 	<div layout:fragment="corpMedia">
 		<div class="container-fluid">
-			<h3>Création d'un audio</h3>
+			<h3>Edition d'un audio</h3>
 			<form th:action="@{updatea}" th:object="${audioedi}"
 				class="form-horizontal" enctype="multipart/form-data" method="post"
 				role="form">
@@ -19,13 +19,23 @@
 					</div>
 				</div>
 				<div class='row'>
-
+					
+				<input type="hidden" th:field="*{codeMedia}" class="form-control"
+									name="codeMedia" id="codeMedia" />
+					
 					<div class="col-lg-6">
 						<div class="form-group">
 							<label for="nom" class="col-sm-2 control-label">Nom :</label>
 							<div class="col-sm-8">
 								<input type="text" th:field="*{nom}" class="form-control"
 									name="nom" id="nom" /> <span th:errors="*{nom}"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="tag" class="col-sm-2 control-label">Tag :</label>
+							<div class="col-sm-8">
+								<input type="text" th:field="*{tag}" class="form-control"
+									 id="tag" name="tag"/>  <span th:errors="*{tag}"></span>
 							</div>
 						</div>
 						<div class="form-group">

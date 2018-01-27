@@ -13,7 +13,10 @@ import com.miage.entities.Employer;
 public interface ClientRepository extends JpaRepository<Client, Long> {
 	@Query("select c from Client c where c.code=:x")
 	public Page<Client> lstClient(@Param("x") Long idcli, Pageable pageable);
-
+	
+	@Query("delete from Client c where c.code =:x")
+	public void updateClient(@Param("x") Long idcli);
+	
 	@Query("delete from Client c where c.code =:x")
 	public void deleteClient(@Param("x") Long idcli);
 	
